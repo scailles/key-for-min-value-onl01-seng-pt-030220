@@ -4,14 +4,16 @@
 my_hash = {}
 
 def key_for_min_value(my_hash)
-min_val=0
-min_key=
-
-my_hash.each do |key, value|
-  if min_val > 0
-    min_val = value
-    min_key = key
+  min_key = my_hash.reduce do |key, value|
+    key.last > value.last ? value : key
   end
+    if my_hash == {}
+      min_key
+    else
+      min_key.first
+    end
 end
-  min_key
-end
+
+
+ 
+
